@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1575921767 source:c:\users\azael\onedrive\documentos\github\projeto-lab\projetoencec\main.c
+	<stdio.h>
+	<stdlib.h>
+	"congressista.h"
+
+1575921432 c:\users\azael\onedrive\documentos\github\projeto-lab\projetoencec\congressista.h
+
+1575919577 source:c:\users\azael\onedrive\documentos\github\projeto-lab\projetoencec\congressista.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"congressista.h"
+
