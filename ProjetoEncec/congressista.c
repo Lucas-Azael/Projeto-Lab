@@ -11,6 +11,7 @@ typedef struct congressista{
     char telefone[60];
 };
 void setCongressista(){
+    int num;
     CO C;
     arq_cong = fopen("congressista.txt", "a+b");
     if(arq_cong == NULL){
@@ -18,19 +19,20 @@ void setCongressista(){
         return;
     }
     printf("\nDigite o numero de inscricao: \n");
-    scanf("%d",&C.ins); //aprimorar esse trecho
+    scanf("%d",&num); //aprimorar esse trecho
+    C.ins=num;
 
     if(C.ins!=0){
         printf("Nome: ");
         setbuf(stdin,NULL);
-        fgets(C.nome,60,stdin);
+        gets(C.nome);
         strupr(C.nome);
         printf("\nE-mail: ");
         setbuf(stdin,NULL);
-        fgets(C.email,60,stdin);
+        gets(C.email);
         printf("\nTelefone: ");
         setbuf(stdin,NULL);
-        fgets(C.telefone,60,stdin);
+        gets(C.telefone);
         fwrite(&C,sizeof(C),1,arq_cong);
         getchar();
     }else{
@@ -74,5 +76,33 @@ void buscarCongressista(){
         printf("\nTelefone:%s",C.telefone);
         getchar();
     }
+    fclose(arq_cong);
+}
+void listarCongressista(){
+    CO C;
+    arq_cong = fopen("congressista.txt","r+b");
+    int i=0;
+    if(arq_cong==NULL){
+        printf("Erro ao abrir arquivo\n");
+        return;
+    }
+    fread(&C,sizeof(C),1,arq_cong);
+    printf("------------------CONGRESSISTAS-----------------------\n");
+
+    while(!feof(arq_cong)){
+        printf("\n+----------------------------+\n");
+        printf("INCRICAO: %2d",C.ins);
+        printf("\nNOME: %s",C.nome);
+        printf("\nE-MAIL: %s",C.email);
+        printf("\nTELEFONE: %s",C.telefone);
+        fread(&C,sizeof(C),1,arq_cong);
+        printf("\n+----------------------------+\n");
+        if(feof(arq_cong)|| (i==300)){
+            break;
+            getchar();
+            getchar();
+        }
+    }
+    getchar();
     fclose(arq_cong);
 }
