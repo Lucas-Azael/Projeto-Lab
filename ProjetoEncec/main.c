@@ -4,6 +4,7 @@
 int main()
 {
     //setCongressista();
-    buscarCongressista();
+    //buscarCongressista();
+    //listarCongressista();
     return 0;
 }
