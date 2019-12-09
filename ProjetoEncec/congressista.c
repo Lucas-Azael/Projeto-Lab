@@ -106,3 +106,10 @@ void listarCongressista(){
     getchar();
     fclose(arq_cong);
 }
+void editarCongressista(){
+    int ins;
+    CO C;
+    arq_cong=fopen("congressista.txt","a+b");
+
+    if(arq_cong)
+}

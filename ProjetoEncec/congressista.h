@@ -7,4 +7,5 @@ void buscarCongressista();
 int buscaNome(char nome);
 void removeCongressista(char nome);
 void listarCongressista();
+void editarCongressista();
 #endif // CONGRESSITA_HEADERS
